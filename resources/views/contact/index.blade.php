@@ -3,7 +3,7 @@
 @section('title','Contatos')
 
 @section('content')
-
+<h1>Contacts Here!</h1>
 @foreach($contacts as $contact)
 <ul>
   <li>{{$contact['name']}}</li>
