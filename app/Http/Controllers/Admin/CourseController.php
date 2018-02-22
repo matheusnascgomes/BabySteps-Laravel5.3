@@ -5,10 +5,10 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class CurseController extends Controller
+class CourseController extends Controller
 {
     public function index()
     {
-      return view('courses.index');
+      return view('admin.courses.index');
     }
 }
