@@ -22,7 +22,7 @@
       <tbody>
         @foreach($registers as $register)
         <tr>
-          <td><img width="120" src="{{ asset($register->image) }}" alt="{{ $register->title }}"></td>
+          <td><img width="90" src="{{ asset($register->image) }}" alt="{{ $register->title }}"></td>
           <td>{{ $register->id }}</td>
           <td>{{ $register->title }}</td>
           <td>{{ $register->description }}</td>
@@ -30,7 +30,7 @@
           <td>{{ $register->published }}</td>
           <td>
             <a class="btn deep-orange" href="{{ route('admin.courses.update.show', $register->id) }}">Editar</a>
-            <a class="btn red" href="{{ route('admin.courses.delete',$register->id) }}">Deletar</a>
+            <a class="btn red" href="{{ route('admin.courses.delete',$register->id) }}" onclick="return confirm('Deseja realmente excluir este item?')">Deletar</a>
           </td>
         </tr>
         @endforeach

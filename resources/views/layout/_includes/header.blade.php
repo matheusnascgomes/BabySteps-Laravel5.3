@@ -16,10 +16,10 @@
     <header>
       <nav class="deep-orange" >
         <div class="container nav-wrapper ">
-          <a href="#!" class="brand-logo">Curso de Laravel</a>
+          <a href="#!" class="brand-logo">Web Gomes Courses</a>
           <a href="#" data-activates="mobile" class="button-collapse"><i class="material-icons">menu</i></a>
           <ul class="right hide-on-med-and-down">
-            <li><a href="">Home</a></li>
+            <li><a href="{{ route('site.home') }}">Home</a></li>
             <li><a href="{{ route('admin.courses') }}">Cursos</a></li>
 
           </ul>
