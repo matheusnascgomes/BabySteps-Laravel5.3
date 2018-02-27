@@ -24,7 +24,7 @@ class CourseController extends Controller
 
       $data = $req->all();
 
-      ($data['published']) ? $data['published'] = 'sim' : $data['published'] = 'nao' ;
+      (isset($data['published'])) ? $data['published'] = 'sim' : $data['published'] = 'nao' ;
 
       if($req->hasFile('image')){
         $image = $req->file('image');
@@ -37,6 +37,33 @@ class CourseController extends Controller
       }
 
       Curso::create($data);
+
+      return redirect()->route('admin.courses');
+    }
+
+    public function updateShow(Request $req, $id)
+    {
+        $registers = Curso::find($id);
+        return view('admin.courses.update', compact('registers'));
+    }
+
+    public function update(Request $req, $id)
+    {
+      $data = $req->all();
+
+      (isset($data['published'])) ? $data['published'] = 'sim' : $data['published'] = 'nao' ;
+
+      if($req->hasFile('image')){
+        $image = $req->file('image');
+        $num = rand(1111,9999);
+        $dir = 'img/courses';
+        $ex = $image->guessClientExtension();
+        $ImageName = 'image_'.$num.".".$ex;
+        $image->move($dir, $ImageName);
+        $data['image'] = $dir."/".$ImageName;
+      }
+
+      Curso::find($id)->update($data);
 
       return redirect()->route('admin.courses');
     }
