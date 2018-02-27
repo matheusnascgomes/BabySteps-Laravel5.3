@@ -7,12 +7,12 @@
   <h3>Cadastro</h3>
 
   <div class="row">
-    <form class="" action="{{ route('admin.courses.add') }}" method="post" enctype="multipart/form-data">
+    <form class="" action="{{ route('admin.courses.save') }}" method="post" enctype="multipart/form-data">
 
         {{ csrf_field() }}
         @include('admin.courses._form')
 
-        <buttom class="btn deep-orange">Salvar</buttom>
+        <button class="btn deep-orange" >Salvar</button>
     </form>
   </div>
 

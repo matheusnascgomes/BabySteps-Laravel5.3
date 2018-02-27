@@ -20,4 +20,4 @@ Route::get('/admin/courses/add',['as'=>'admin.courses.add','uses'=>'Admin\Course
 Route::post('/admin/courses/save',['as'=>'admin.courses.save','uses'=>'Admin\CourseController@save']);
 Route::get('/admin/courses/update/show/{id}',['as'=>'admin.courses.update.show','uses'=>'Admin\CourseController@updateShow']);
 Route::put('/admin/courses/update/{id}',['as'=>'admin.courses.update','uses'=>'Admin\CourseController@update']);
-Route::get('/admin/courses/delete/{id}',['as'=>'admin.courses.save','uses'=>'Admin\CourseController@delete']);
+Route::get('/admin/courses/delete/{id}',['as'=>'admin.courses.delete','uses'=>'Admin\CourseController@delete']);

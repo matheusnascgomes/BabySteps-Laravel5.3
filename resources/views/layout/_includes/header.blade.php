@@ -14,13 +14,13 @@
   </head>
   <body>
     <header>
-      <nav>
-        <div class="container nav-wrapper">
+      <nav class="deep-orange" >
+        <div class="container nav-wrapper ">
           <a href="#!" class="brand-logo">Curso de Laravel</a>
           <a href="#" data-activates="mobile" class="button-collapse"><i class="material-icons">menu</i></a>
           <ul class="right hide-on-med-and-down">
-            <li><a href="/">Home</a></li>
-            <li><a href="{{route('admin.courses.add')}}">Cursos</a></li>
+            <li><a href="">Home</a></li>
+            <li><a href="{{ route('admin.courses') }}">Cursos</a></li>
 
           </ul>
           <ul class="side-nav" id="mobile">

@@ -18,4 +18,26 @@ class CourseController extends Controller
     {
       return view('admin.courses.add');
     }
+
+    public function save(Request $req)
+    {
+
+      $data = $req->all();
+
+      ($data['published']) ? $data['published'] = 'sim' : $data['published'] = 'nao' ;
+
+      if($req->hasFile('image')){
+        $image = $req->file('image');
+        $num = rand(1111,9999);
+        $dir = 'img/courses';
+        $ex = $image->guessClientExtension();
+        $ImageName = 'image_'.$num.".".$ex;
+        $image->move($dir, $ImageName);
+        $data['image'] = $dir."/".$ImageName;
+      }
+
+      Curso::create($data);
+
+      return redirect()->route('admin.courses');
+    }
 }
