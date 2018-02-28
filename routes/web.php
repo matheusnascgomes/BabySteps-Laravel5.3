@@ -13,6 +13,11 @@
 
 Route::get('/',['as'=>'site.home','uses'=>'Site\HomeController@index']);
 
+Route::get('/login',['as'=>'site.login','uses'=>'Site\HomeController@index']);
+
+Route::post('/signin',['as'=>'site.signin','uses'=>'Site\HomeController@signIn']);
+
+
 Route::get('/admin/courses',['as'=>'admin.courses','uses'=>'Admin\CourseController@index']);
 
 Route::get('/admin/courses/add',['as'=>'admin.courses.add','uses'=>'Admin\CourseController@add']);
