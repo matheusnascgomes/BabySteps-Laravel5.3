@@ -20,7 +20,13 @@
           <a href="#" data-activates="mobile" class="button-collapse"><i class="material-icons">menu</i></a>
           <ul class="right hide-on-med-and-down">
             <li><a href="{{ route('site.home') }}">Home</a></li>
-            <li><a href="{{ route('admin.courses') }}">Cursos</a></li>
+            @if(Auth::guest())
+              <li><a href="{{ route('site.login') }}">Login</a></li>
+            @else
+              <li><a href="">{{ Auth::user()->name }}</a></li>
+              <li><a href="{{ route('admin.courses') }}">Cursos</a></li>
+              <li><a href="{{ route('site.logout') }}">Sair</a></li>
+            @endif
 
           </ul>
           <ul class="side-nav" id="mobile">

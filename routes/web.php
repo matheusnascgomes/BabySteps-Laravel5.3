@@ -1,31 +1,25 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
 Route::get('/',['as'=>'site.home','uses'=>'Site\HomeController@index']);
 
-Route::get('/login',['as'=>'site.login','uses'=>'Site\HomeController@index']);
+Route::get('/login',['as'=>'site.login','uses'=>'Site\LoginController@index']);
 
-Route::post('/signin',['as'=>'site.signin','uses'=>'Site\HomeController@signIn']);
+Route::get('/logout',['as'=>'site.logout','uses'=>'Site\LoginController@logout']);
 
+Route::post('/signin',['as'=>'site.signin','uses'=>'Site\LoginController@signIn']);
 
-Route::get('/admin/courses',['as'=>'admin.courses','uses'=>'Admin\CourseController@index']);
+Route::group(['middleware'=>'auth'], function(){
 
-Route::get('/admin/courses/add',['as'=>'admin.courses.add','uses'=>'Admin\CourseController@add']);
+  Route::get('/admin/courses',['as'=>'admin.courses','uses'=>'Admin\CourseController@index']);
 
-Route::post('/admin/courses/save',['as'=>'admin.courses.save','uses'=>'Admin\CourseController@save']);
+  Route::get('/admin/courses/add',['as'=>'admin.courses.add','uses'=>'Admin\CourseController@add']);
 
-Route::get('/admin/courses/update/show/{id}',['as'=>'admin.courses.update.show','uses'=>'Admin\CourseController@updateShow']);
+  Route::post('/admin/courses/save',['as'=>'admin.courses.save','uses'=>'Admin\CourseController@save']);
 
-Route::put('/admin/courses/update/{id}',['as'=>'admin.courses.update','uses'=>'Admin\CourseController@update']);
+  Route::get('/admin/courses/update/show/{id}',['as'=>'admin.courses.update.show','uses'=>'Admin\CourseController@updateShow']);
 
-Route::get('/admin/courses/delete/{id}',['as'=>'admin.courses.delete','uses'=>'Admin\CourseController@delete']);
+  Route::put('/admin/courses/update/{id}',['as'=>'admin.courses.update','uses'=>'Admin\CourseController@update']);
+
+  Route::get('/admin/courses/delete/{id}',['as'=>'admin.courses.delete','uses'=>'Admin\CourseController@delete']);
+
+});
