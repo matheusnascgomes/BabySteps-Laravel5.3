@@ -7,7 +7,6 @@
 <div class="container center">
 
   <div class="row">
-
     @foreach($courses as $course)
     <div class="col s12 m4">
       <div class="card">
@@ -24,9 +23,10 @@
       </div>
     </div>
     @endforeach
-
   </div>
-
+  <div class="row">
+    {{ $courses->links() }}
+  </div>
 </div>
 
 @endsection

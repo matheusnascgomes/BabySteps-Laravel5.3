@@ -13,7 +13,7 @@ class UserSeeder extends Seeder
     public function run()
     {
         $data = [
-          'name'=>'admin',
+          'name'=>'Matheus Gomes',
           'email'=>'matheusnascgomes@gmail.com',
           'password'=>bcrypt("12345"),
         ];

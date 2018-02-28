@@ -11,8 +11,8 @@ class HomeController extends Controller
 
   public function index()
   {
-    $courses = Curso::all();
+    $courses = Curso::paginate(3);
 
-    return view('site.home', compact('courses'));
+    return view('home', compact('courses'));
   }
 }
